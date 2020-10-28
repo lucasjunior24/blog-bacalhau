@@ -5,13 +5,13 @@ module.exports = {
         try {
             // mostrar/ pegar projetos de usuarios por id
             const { user_id } = req.query;
-            const query = knex('projects')
+            const query = knex('perguntas')
 
             if (user_id) {
                 query
                     .where({ user_id })
-                    .join('users', 'users.id', '=', 'projects.user_id')
-                    .select('projects.*', 'users.username')
+                    .join('users', 'users.id', '=', 'perguntas.user_id')
+                    .select('perguntas.*', 'users.name')
 
             }
 
@@ -25,28 +25,28 @@ module.exports = {
     },
     async create(req, res, next) {
         try {
-            const { title, user_id } = req.body;
+            const { pergunta, user_id } = req.body;
             // Insere na tabela users
-            await knex('projects').insert({ title, user_id })
+            await knex('perguntas').insert({ pergunta, user_id })
 
             return res.status(201).send()
-        } catch {
+        } catch (error) {
             next(error)
         }
     },
-    // async update(req, res, next) {
-    //     try {
-    //         // Onde o usuario tiver o id, ele vai atualizar
-    //         const { username } = req.body;
-    //         const { id } = req.params;
-    //         // Atualizar dados na tabela users
-    //         await knex('users').update({ username }).where({ id })
+    async update(req, res, next) {
+        try {
+            // Onde o usuario tiver o id, ele vai atualizar
+            const { pergunta } = req.body;
+            const { id } = req.params;
+            // Atualizar dados na tabela users
+            await knex('perguntas').update({ pergunta }).where({ id })
 
-    //         return res.send()
-    //     } catch {
-    //         next(error)
-    //     }
-    // },
+            return res.send()
+        } catch (error) {
+            next(error)
+        }
+    },
     // async delete(req, res, next) {
     //     try {
     //         const { id } = req.params;

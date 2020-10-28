@@ -1,7 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 const UserController = require('./controllers/UserController');
-const ProjectsController = require('./controllers/ProjectsControllers');
+const PerguntasController = require('./controllers/PerguntasControllers');
 
 routes
     // users
@@ -11,8 +11,9 @@ routes
     .delete('/users/:id', UserController.delete)
 
     // projects
-    .get('/projects', ProjectsController.index)
-    .post('/projects', ProjectsController.create)
+    .get('/perguntas', PerguntasController.index)
+    .post('/perguntas', PerguntasController.create)
+    .put('/perguntas/:id', PerguntasController.update)
 
 
 module.exports = routes;

@@ -8,9 +8,9 @@ module.exports = {
     },
     async create(req, res, next) {
         try {
-            const { username } = req.body;
+            const { name, password, email } = req.body;
             // Insere na tabela users
-            await knex('users').insert({ username })
+            await knex('users').insert({ name, password, email })
 
             return res.status(201).send()
         } catch {
@@ -20,10 +20,10 @@ module.exports = {
     async update(req, res, next) {
         try {
             // Onde o usuario tiver o id, ele vai atualizar
-            const { username } = req.body;
+            const { name } = req.body;
             const { id } = req.params;
             // Atualizar dados na tabela users
-            await knex('users').update({ username }).where({ id })
+            await knex('users').update({ name }).where({ id })
 
             return res.send()
         } catch {
