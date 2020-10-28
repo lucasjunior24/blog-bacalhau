@@ -13,7 +13,7 @@ module.exports = {
             await knex('users').insert({ name, password, email })
 
             return res.status(201).send()
-        } catch {
+        } catch (error) {
             next(error)
         }
     },

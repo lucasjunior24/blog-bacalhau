@@ -16,6 +16,7 @@ npm i nodemon -D
 Para instalar nodemon e pasta node_modules, execulte também para instalar demais dependencias
  
 npm i knex pg express
+npm i body-parser cors
 
 
 
