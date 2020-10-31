@@ -10,6 +10,11 @@ exports.up = knex => knex.schema.createTable('respostas', table => {
         .notNullable()
         .onDelete('CASCADE')
 
+    table.integer('pergunta_id')
+        .references('perguntas.id')
+        .notNullable()
+        .onDelete('CASCADE')
+
     table.timestamps(true, true)
 });
 
