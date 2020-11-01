@@ -6,7 +6,7 @@ import Bac from '../../img/bac.jpeg'
 
 import './styles.css'
 
-export default function Main() {
+export default function Landing() {
     return (
         <div className='container'>
             <section className='banner'>
@@ -56,9 +56,7 @@ export default function Main() {
                                 </h4>
                             </div> 
                         </div>
-                    </div>
-
-                    
+                    </div> 
                 </div>               
             </section>                           
         </div>

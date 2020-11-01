@@ -3,28 +3,27 @@ import { Link } from "react-router-dom";
 
 import './styles.css';
 
-export default function Login() {
+export default function Form() {
   return (
     <div className='container'>
-      <section className='login-content'>
-        <h2>LOGIN</h2>
+      <section className='form-content'>
+        <h2>Faça uma Pergunta</h2>
         <div className='form-content'>
-          <form >
+          <form post=''>
             <div className='input-block'>
               <label for='email'>Email</label>
               <input type='email' id='email' />
             </div>
             <div className='input-block'>
-              <label for='password'>Senha</label>
-              <input type='password' id='password' />
+              <textarea></textarea>
             </div>
             <div className='button'>
-              <button type='submit'>Entrar</button>
+              <button type='submit'>Enviar</button>
             </div>
           </form>
         </div>
         <div className='text-register'>
-          <p>Não possui uma conta? <Link to='/cadastro'><span className='link-register'>cadastre-se</span></Link>!</p>
+          <p>Voltar para a Home <Link to='/home'><span className='link-home'>clique aqui</span></Link></p>
         </div>
       </section>
     </div> 
