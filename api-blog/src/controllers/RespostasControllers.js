@@ -4,24 +4,23 @@ module.exports = {
     async index(req, res, next) {
         try {
             // mostrar/ pegar projetos de usuarios por id
-            const { prof_id, pergunta_id } = req.query;
+            const { pergunta_id, user_id } = req.query;
             const query = knex('respostas')
 
-            if (prof_id) {
+            if (user_id) {
                 query
-                    .where({ prof_id })
-                    .join('prof', 'prof.id', '=', 'respostas.prof_id')
-                    .select('respostas.*', 'prof.name')
+                    .where({ user_id })
+                    .join('users', 'users.id', '=', 'respostas.user_id')
+                    .select('respostas.*', 'users.name')
+
             }
-            // pergunta_id
+
             if (pergunta_id) {
                 query
                     .where({ pergunta_id })
                     .join('perguntas', 'perguntas.id', '=', 'respostas.pergunta_id')
-                    .select('respostas.*', 'perguntas.pergunta')
-
+                    .select('perguntas.pergunta')
             }
-
             const results = await query;
 
             return res.json(results)
@@ -32,9 +31,9 @@ module.exports = {
     },
     async create(req, res, next) {
         try {
-            const { resposta, prof_id, pergunta_id } = req.body;
+            const { resposta, prof_id, pergunta_id, user_id } = req.body;
             // Insere na tabela users
-            await knex('respostas').insert({ resposta, prof_id, pergunta_id })
+            await knex('respostas').insert({ resposta, prof_id, pergunta_id, user_id })
 
             return res.status(201).send()
         } catch (error) {

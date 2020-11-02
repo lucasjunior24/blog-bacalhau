@@ -15,6 +15,11 @@ exports.up = knex => knex.schema.createTable('respostas', table => {
         .notNullable()
         .onDelete('CASCADE')
 
+    table.integer('user_id')
+        .references('users.id')
+        .notNullable()
+        .onDelete('CASCADE')
+
     table.timestamps(true, true)
 });
 
