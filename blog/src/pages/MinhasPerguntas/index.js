@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import './styles.css';
+// import './styles.css';
 
 export default function Form() {
   return (
@@ -26,6 +26,6 @@ export default function Form() {
           <p>Voltar para a Home <Link to='/home'><span className='link-home'>clique aqui</span></Link></p>
         </div>
       </section>
-    </div> 
+    </div>
   )
 };

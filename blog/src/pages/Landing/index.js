@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import Landing from '../../img/landing.svg'
+import LandingImg from '../../img/landing.svg'
 import Bac from '../../img/bac.jpeg'
 
 import './styles.css'
@@ -12,29 +12,29 @@ export default function Landing() {
             <section className='banner'>
                 <div className='content-banner'>
                     <div className='grid-row1'>
-                        <h1>Pergunte pro <br/> Bacalhau!</h1>
-                        <img src={Landing} alt='Landing' />   
+                        <h1>Pergunte pro <br /> Bacalhau!</h1>
+                        <img src={LandingImg} alt='Landing' />
                     </div>
 
                     <div className='grid-row2'>
                         <div className='botoes'>
                             <Link to="/login"><button className='btnP2'>Fazer uma Pergunta</button></Link>
-                            <a><button className='btnP3'>Perguntas já Feitas</button></a>       
+                            <Link to="/perguntas"><button className='btnP2'>Perguntas já Feitas</button></Link>
                         </div>
                         <div className='texto'>
                             <p>Tire suas dúvidas com quem já trabalha com Tecnologia há anos</p>
                         </div>
-                    </div> 
-                </div>             
+                    </div>
+                </div>
             </section>
-            
+
             <section className='sobre'>
                 <div className='content-sobre'>
                     <div className='content-base'>
                         <div className='logoM'>
                             <div className='column'>
                                 <h2>Pergunte pro Bacalhau!</h2>
-                                <p>Tire suas duvidas em tecnologia <br/> com o Mestre Bacalhau!</p>
+                                <p>Tire suas duvidas em tecnologia <br /> com o Mestre Bacalhau!</p>
                             </div>
                         </div>
                         <div className='bio'>
@@ -54,11 +54,11 @@ export default function Landing() {
                                     Nascido em portugal em ...<br />
                                     Sempre teve interesse por tecnologia...
                                 </h4>
-                            </div> 
+                            </div>
                         </div>
-                    </div> 
-                </div>               
-            </section>                           
+                    </div>
+                </div>
+            </section>
         </div>
     )
 };
